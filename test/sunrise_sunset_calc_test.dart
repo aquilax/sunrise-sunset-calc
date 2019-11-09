@@ -9,8 +9,10 @@ void main() {
       var date = DateTime.utc(2017, 3, 23, 0, 0, 0);
       var ssr = getSunriseSunset(-23.545570, -46.704082, -3, date);
 
-      expect(ssr.sunrise, equals(expectedSunrise), reason:'Sunrise does not match');
-      expect(ssr.sunset, equals(expectedSunset), reason:'Sunset does not match');
+      expect(ssr.sunrise, equals(expectedSunrise),
+          reason: 'Sunrise does not match');
+      expect(ssr.sunset, equals(expectedSunset),
+          reason: 'Sunset does not match');
     });
   });
 }

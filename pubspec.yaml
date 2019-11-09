@@ -1,8 +1,7 @@
 name: sunrise_sunset_calc
-description: Calculates sunrise and sunset time given coordinates
-version: 1.0.0
+description: Calculates sunrise and sunset time given latitude, longitude, timezone offset and date.
+version: 1.0.1
 homepage: https://github.com/aquilax/sunrise-sunset-calc
-author: aquilax <aquilax@gmail.com>
 
 environment:
   sdk: '>=2.5.0 <3.0.0'

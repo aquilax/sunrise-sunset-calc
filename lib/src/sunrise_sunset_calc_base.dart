@@ -1,9 +1,7 @@
-
 import 'dart:math';
 
 /// Result of SunriseSunset calculation
 class SunriseSunsetResult {
-
   /// Construnctor method
   SunriseSunsetResult(this.sunrise, this.sunset);
 
@@ -238,8 +236,8 @@ List<num> _calcSunDeclination(List<num> obliqCorr, List<num> sunAppLong) {
   }
 
   for (int index = 0; index < obliqCorr.length; index++) {
-    final num temp = _rad2deg(
-        asin(sin(_deg2rad(obliqCorr[index])) * sin(_deg2rad(sunAppLong[index]))));
+    final num temp = _rad2deg(asin(
+        sin(_deg2rad(obliqCorr[index])) * sin(_deg2rad(sunAppLong[index]))));
     sunDeclination.add(temp);
   }
   return sunDeclination;
@@ -262,7 +260,8 @@ List<num> _calcEquationOfTime(
   }
 
   for (int index = 0; index < multiFactor.length; index++) {
-    final num a = multiFactor[index] * sin(2.0 * _deg2rad(geomMeanLongSun[index]));
+    final num a =
+        multiFactor[index] * sin(2.0 * _deg2rad(geomMeanLongSun[index]));
     final num b =
         2.0 * eccentEarthOrbit[index] * sin(_deg2rad(geomMeanAnomSun[index]));
     final num c = 4.0 *
@@ -418,7 +417,8 @@ SunriseSunsetResult getSunriseSunset(
   final List<num> haSunrise = _calcHaSunrise(latitude, sunDeclination);
 
   // Solar Noon (LST)
-  final List<num> solarNoon = _calcSolarNoon(longitude, equationOfTime, utcOffset);
+  final List<num> solarNoon =
+      _calcSolarNoon(longitude, equationOfTime, utcOffset);
 
   // Sunrise and Sunset Times (LST)
   final List<num> tempSunrise = [];
@@ -438,7 +438,8 @@ SunriseSunsetResult getSunriseSunset(
   final int sunsetSeconds = _minIndex(_abs(tempSunset));
 
   // Convert the seconds to time
-  final DateTime defaultTime = DateTime.utc(date.year, date.month, date.day, 0, 0, 0);
+  final DateTime defaultTime =
+      DateTime.utc(date.year, date.month, date.day, 0, 0, 0);
   return SunriseSunsetResult(defaultTime.add(Duration(seconds: sunriseSeconds)),
       defaultTime.add(Duration(seconds: sunsetSeconds)));
 }
