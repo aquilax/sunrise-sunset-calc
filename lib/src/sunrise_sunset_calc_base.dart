@@ -62,7 +62,7 @@ List<num> _calcJulianDay(
   final List<num> julianDay = [];
   for (num index = 0; index < secondsNorm.length; index++) {
     final num temp =
-        numDays + 2415018.5 + secondsNorm[index] - utcOffset.inHours / 24.0;
+        numDays + 2415018.5 + secondsNorm[index as int] - utcOffset.inHours / 24.0;
     julianDay.add(temp);
   }
   return julianDay;
