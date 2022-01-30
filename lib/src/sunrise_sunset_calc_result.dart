@@ -14,6 +14,9 @@ class SunriseSunsetResult {
       'sunrise: ${sunrise.toString()}, sunset: ${sunset.toString()}';
 
   @override
+  int get hashCode => Object.hash(sunrise, sunset);
+
+  @override
   bool operator ==(other) =>
       other is SunriseSunsetResult &&
       sunrise == other.sunrise &&

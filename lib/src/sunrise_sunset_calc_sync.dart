@@ -99,8 +99,8 @@ SunriseSunsetResult getSunriseSunset(
   var sunriseSeconds = -1;
   var minSunset = 86400.0;
   var sunsetSeconds = -1;
-  var a;
-  var b;
+  int a;
+  double b;
 
   for (var index = 0; index < solarNoon.length; index++) {
     a = (haSunrise[index] * 4.0 * 60.0).round();
