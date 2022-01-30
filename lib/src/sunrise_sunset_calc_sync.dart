@@ -33,7 +33,7 @@ SunriseSunsetResult getSunriseSunset(
   final doubleDays = date.difference(since).inDays;
 
   // Seconds of a full day 86400
-  const seconds = 24 * 60 * 60;
+  const seconds = secondsInADay;
   final utcOffsetHours = date.timeZoneOffset.inHours / 24;
 
   // Creates a vector that represents each second in the range 0~1

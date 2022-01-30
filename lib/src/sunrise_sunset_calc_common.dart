@@ -1,6 +1,8 @@
 import 'dart:math';
 import 'package:vector_math/vector_math.dart';
 
+const secondsInADay = 24 * 60 * 60;
+
 /// Calculate Julian Day based on the formula: nDays+2415018.5+secondsNorm-UTCoff/24
 /// [doubleDays] - The doubleber of days calculated in the calculate function
 /// [secondsNorm] - Seconds normalized calculated by the createSecondsNormalized function

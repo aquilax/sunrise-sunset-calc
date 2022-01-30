@@ -8,7 +8,7 @@ import 'sunrise_sunset_calc_common.dart';
 // seconds - The doubleber of seconds will be normalized to 1
 // Return A vector with the seconds normalized to 0~1
 Stream<double> _createSecondsNormalized(int seconds) async* {
-  for (var index = 1; index <= seconds; index++) {
+  for (var index = 0; index < seconds; index++) {
     yield index / (seconds - 1);
   }
 }
@@ -47,7 +47,7 @@ Future<SunriseSunsetResult> getSunriseSunsetAsync(
   final doubleDays = date.difference(since).inDays;
 
   // Seconds of a full day 86400
-  const seconds = 24 * 60 * 60;
+  const seconds = secondsInADay;
   final utcOffsetHours = date.timeZoneOffset.inHours / 24;
 
   // Creates a vector that represents each second in the range 0~1

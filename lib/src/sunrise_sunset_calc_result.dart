@@ -12,4 +12,10 @@ class SunriseSunsetResult {
   @override
   String toString() =>
       'sunrise: ${sunrise.toString()}, sunset: ${sunset.toString()}';
+
+  @override
+  bool operator ==(other) =>
+      other is SunriseSunsetResult &&
+      sunrise == other.sunrise &&
+      sunset == other.sunset;
 }
