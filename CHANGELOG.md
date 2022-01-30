@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.0
+
+* Adds asyc function which uses streams internally
+
 ## 2.1.0
 
 * Rewritten the code into more idiomatic Dart
