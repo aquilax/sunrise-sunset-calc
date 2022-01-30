@@ -17,12 +17,10 @@ void main() {
     });
 
     test('Returns correct surnire time when called as a promise', () {
-      getSunriseSunsetAsync(-23.545570, -46.704082, -3, date).then((ssr) {
-        expect(ssr.sunrise, equals(expectedSunrise),
-            reason: 'Sunrise does not match');
-        expect(ssr.sunset, equals(expectedSunset),
-            reason: 'Sunset does not match');
-      });
+      expect(
+          getSunriseSunsetAsync(-23.545570, -46.704082, -3, date),
+          completion(
+              equals(SunriseSunsetResult(expectedSunrise, expectedSunset))));
     });
 
     test('Returns correct surnire time when called async', () async {
