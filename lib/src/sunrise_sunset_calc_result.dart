@@ -1,6 +1,6 @@
 /// Result of SunriseSunset calculation
 class SunriseSunsetResult {
-  /// Construnctor method
+  /// Constructor method
   SunriseSunsetResult(this.sunrise, this.sunset);
 
   /// Time of the sunrise

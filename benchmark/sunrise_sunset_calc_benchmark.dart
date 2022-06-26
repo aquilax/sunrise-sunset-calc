@@ -10,7 +10,7 @@ class SunriseSunsetBenchmarkSync extends BenchmarkBase {
 
   @override
   void run() {
-    getSunriseSunset(50.9876, 30.1234, 3, DateTime.now());
+    getSunriseSunset(50.9876, 30.1234, Duration(hours: 3), DateTime.now());
   }
 }
 
@@ -23,7 +23,8 @@ class SunriseSunsetBenchmarkAsync extends AsyncBenchmarkBase {
 
   @override
   Future<void> run() async {
-    await getSunriseSunsetAsync(50.9876, 30.1234, 3, DateTime.now());
+    await getSunriseSunsetAsync(
+        50.9876, 30.1234, Duration(hours: 3), DateTime.now());
   }
 }
 

@@ -10,7 +10,7 @@ List<double> _createSecondsNormalized(int seconds) =>
 /// GetSunriseSunset function is responsible for calculating the apparent Sunrise and Sunset times.
 /// If some parameter is wrong it will throw an error.
 SunriseSunsetResult getSunriseSunset(
-    double latitude, double longitude, int utcOffset, DateTime date) {
+    double latitude, double longitude, Duration utcOffset, DateTime date) {
   // Check latitude
   if (!checkLatitude(latitude)) {
     throw Exception('Invalid latitude');
@@ -20,7 +20,7 @@ SunriseSunsetResult getSunriseSunset(
     throw Exception('Invalid longitude');
   }
   // Check UTC offset
-  if (!checkUtcOffset(utcOffset)) {
+  if (!checkUtcOffset(utcOffset.inHours)) {
     throw Exception('Invalid UTC offset');
   }
   // Check date
@@ -91,8 +91,10 @@ SunriseSunsetResult getSunriseSunset(
       (index) => calcHaSunrise(latitude, sunDeclination[index]));
 
   // Solar Noon (LST)
-  final solarNoon = List<double>.generate(equationOfTime.length,
-      (index) => calcSolarNoon(longitude, equationOfTime[index], utcOffset));
+  final solarNoon = List<double>.generate(
+      equationOfTime.length,
+      (index) =>
+          calcSolarNoon(longitude, equationOfTime[index], utcOffset.inHours));
 
   // Sunrise and Sunset Times (LST)
   var minSunrise = 86400.0;

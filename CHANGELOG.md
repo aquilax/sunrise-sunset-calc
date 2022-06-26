@@ -1,8 +1,12 @@
 # Changelog
 
+## 3.0.0
+
+* Switch to using Duration for timezone offset
+
 ## 2.2.0
 
-* Adds asyc function which uses streams internally
+* Adds async function which uses streams internally
 
 ## 2.1.0
 
