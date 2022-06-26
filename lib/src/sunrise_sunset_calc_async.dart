@@ -23,8 +23,8 @@ class _Aggregator {
 
 /// GetSunriseSunset function is responsible for calculating the apparent Sunrise and Sunset times.
 /// If some parameter is wrong it will throw an error.
-Future<SunriseSunsetResult> getSunriseSunsetAsync(
-    double latitude, double longitude, int utcOffset, DateTime date) async {
+Future<SunriseSunsetResult> getSunriseSunsetAsync(double latitude,
+    double longitude, Duration utcOffset, DateTime date) async {
   // Check latitude
   if (!checkLatitude(latitude)) {
     throw Exception('Invalid latitude');
@@ -34,7 +34,7 @@ Future<SunriseSunsetResult> getSunriseSunsetAsync(
     throw Exception('Invalid longitude');
   }
   // Check UTC offset
-  if (!checkUtcOffset(utcOffset)) {
+  if (!checkUtcOffset(utcOffset.inHours)) {
     throw Exception('Invalid UTC offset');
   }
   // Check date
@@ -110,8 +110,8 @@ Future<SunriseSunsetResult> getSunriseSunsetAsync(
       .map((sunDeclination) => calcHaSunrise(latitude, sunDeclination));
 
   // Solar Noon (LST)
-  final solarNoonStream = equationOfTime.map(
-      (equationOfTime) => calcSolarNoon(longitude, equationOfTime, utcOffset));
+  final solarNoonStream = equationOfTime.map((equationOfTime) =>
+      calcSolarNoon(longitude, equationOfTime, utcOffset.inHours));
 
   _Aggregator getResult(_Aggregator aggregator, List<double> element) {
     final secondsNormVal = element[0];

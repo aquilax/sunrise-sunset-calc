@@ -8,8 +8,9 @@ void main() {
     final expectedSunset = DateTime.utc(2017, 3, 23, 18, 14, 34);
     final expected = SunriseSunsetResult(expectedSunrise, expectedSunset);
 
-    test('Returns correct surnire time', () {
-      final ssr = getSunriseSunset(-23.545570, -46.704082, -3, date);
+    test('Returns correct sunrise time', () {
+      final ssr =
+          getSunriseSunset(-23.545570, -46.704082, Duration(hours: -3), date);
 
       expect(ssr.sunrise, equals(expectedSunrise),
           reason: 'Sunrise does not match');
@@ -19,12 +20,15 @@ void main() {
     });
 
     test('Returns correct surnire time when called as a promise', () {
-      expect(getSunriseSunsetAsync(-23.545570, -46.704082, -3, date),
+      expect(
+          getSunriseSunsetAsync(
+              -23.545570, -46.704082, Duration(hours: -3), date),
           completion(equals(expected)));
     });
 
     test('Returns correct surnire time when called async', () async {
-      final ssr = await getSunriseSunsetAsync(-23.545570, -46.704082, -3, date);
+      final ssr = await getSunriseSunsetAsync(
+          -23.545570, -46.704082, Duration(hours: -3), date);
 
       expect(ssr.sunrise, equals(expectedSunrise),
           reason: 'Sunrise does not match');
